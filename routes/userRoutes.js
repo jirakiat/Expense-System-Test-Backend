@@ -7,7 +7,7 @@ const router = express.Router();
  * @swagger
  * /api/users/register:
  *   post:
- *     summary: Register a new user
+ *     summary: เพิ่มผู้ใช้ใหม่
  *     tags: [Users]
  *     requestBody:
  *       required: true
@@ -34,7 +34,7 @@ router.post('/register', register);
  * @swagger
  * /api/users/login:
  *   post:
- *     summary: Login a user
+ *     summary: เข้าสู่ระบบ
  *     tags: [Users]
  *     requestBody:
  *       required: true
