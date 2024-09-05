@@ -1,7 +1,7 @@
-const {Expense, sequelize} = require('../models/Expense');
+const Expense = require('../models/Expense');
 const User = require('../models/User');
 const moment = require("moment-timezone");
-const {Sequelize, Op} = require('sequelize');
+
 
 exports.addExpense = async (req, res) => {
     const {title, amount, category, user_id} = req.body;
@@ -14,8 +14,12 @@ exports.addExpense = async (req, res) => {
             const dateoftheexpense = moment().tz('Asia/Bangkok').format('YYYY-MM-DD');
 
             const expense = await Expense.create({title, amount, category, dateoftheexpense, user_id});
+            if (expense) {
+                res.status(201).json({message: 'บันทึกข้อมูลสำเร็จ'});
+            } else {
+                return res.status(400).json({message: 'บันทึกข้อมูลไม่สำเร็จ'});
+            }
 
-            res.status(201).json({message: 'บันทึกข้อมูลสำเร็จ'});
 
         } else {
             return res.status(400).json({message: 'ยังไม่มีผู้ใช้นี้ในระบบ'});
@@ -147,9 +151,9 @@ exports.reportsumExpense = async (req, res) => {
         `;
 
         const [results, metadata] = await sequelize.query(query);
-        if (results){
+        if (results) {
             return res.status(201).json(results);
-        }else{
+        } else {
             return res.status(400).json({message: 'ไม่พบข้อมูล'});
         }
 

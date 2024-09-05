@@ -41,7 +41,7 @@ const authenticate = require('../middleware/auth');
  *       500:
  *         description: ข้อผิดพลาดของเซิร์ฟเวอร์
  */
-router.post('/addExpense', addExpense);
+router.post('/addExpense', authenticate, addExpense);
 
 /**
  * @swagger
@@ -75,7 +75,7 @@ router.post('/addExpense', addExpense);
  *       500:
  *         description: ข้อผิดพลาดของเซิร์ฟเวอร์
  */
-router.post('/dataExpense', dataExpense);
+router.post('/dataExpense', authenticate, dataExpense);
 
 /**
  * @swagger
@@ -117,7 +117,7 @@ router.post('/dataExpense', dataExpense);
  *       500:
  *         description: ข้อผิดพลาดของเซิร์ฟเวอร์
  */
-router.post('/updateExpense', updateExpense);
+router.post('/updateExpense', authenticate, updateExpense);
 
 
 /**
@@ -150,7 +150,7 @@ router.post('/updateExpense', updateExpense);
  *       500:
  *         description: ข้อผิดพลาดของเซิร์ฟเวอร์
  */
-router.post('/removeExpense', removeExpense);
+router.post('/removeExpense', authenticate, removeExpense);
 
 
 
@@ -181,7 +181,7 @@ router.post('/removeExpense', removeExpense);
  *       500:
  *         description: ข้อผิดพลาดของเซิร์ฟเวอร์
  */
-router.post('/reportsumExpense', reportsumExpense);
+router.post('/reportsumExpense', authenticate, reportsumExpense);
 
 
 module.exports = router;
