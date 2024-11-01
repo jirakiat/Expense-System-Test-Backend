@@ -8,7 +8,7 @@ const swaggerOptions = {
         info: {
             title: 'Expense Test Backend  Tracker API',
             version: '1.0.0',
-            description: 'API for managing personal expenses  DEV BY JIW JIRAKIAT',
+            description: 'API for managing personal expenses  DEV BY JIW JIRAKIAT Back end',
         },
         servers: [
             {
